@@ -1,0 +1,44 @@
+{
+  "products": [
+    {
+      "id": "mh-pro-racing",
+      "name": "MotoHelm Pro Racing",
+      "price": 299.99,
+      "currency": "USD",
+      "img": "images/pro_racing.jpg",
+      "description": "Casco integral certificado ECE, ideal para pista. Importado desde Paraguay.",
+      "colors": ["Negro","Blanco","Rojo"],
+      "sizes": ["S","M","L"]
+    },
+    {
+      "id": "mh-urban",
+      "name": "MotoHelm Urban",
+      "price": 149.99,
+      "currency": "USD",
+      "img": "images/urban.jpg",
+      "description": "Casco modular para uso urbano con visera abatible. Importado desde Paraguay.",
+      "colors": ["Gris","Blanco"],
+      "sizes": ["M","L"]
+    },
+    {
+      "id": "mh-offroad",
+      "name": "MotoHelm Off-Road",
+      "price": 189.99,
+      "currency": "USD",
+      "img": "images/offroad.jpg",
+      "description": "Casco de motocross ligero y ventilado. Importado desde Paraguay.",
+      "colors": ["Amarillo","Negro"],
+      "sizes": ["M","L","XL"]
+    },
+    {
+      "id": "mh-classic",
+      "name": "MotoHelm Classic",
+      "price": 99.99,
+      "currency": "USD",
+      "img": "images/classic.jpg",
+      "description": "Casco abierto clásico, cómodo y ligero. Importado desde Paraguay.",
+      "colors": ["Blanco","Negro"],
+      "sizes": ["S","M"]
+    }
+  ]
+}

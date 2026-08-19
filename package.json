@@ -1,0 +1,23 @@
+{
+  "name": "proyecto-base",
+  "version": "1.0.0",
+  "description": "Estructura modular y escalable para proyectos",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "test": "node --test tests/**/*.js",
+    "setup": "node scripts/setup.js"
+  },
+  "keywords": [
+    "estructura",
+    "proyecto",
+    "base"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

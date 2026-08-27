@@ -4,20 +4,54 @@ require_once 'includes/header.php';
 ?>
 
 <div class="container">
-    <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content">
-            <h2>🏍️ MotoHelm - Cascos de Calidad</h2>
-            <p><?php echo STORE_SLOGAN; ?></p>
-            <a href="<?php echo getUrl('tienda.php'); ?>" class="btn btn-primary">Ir a la Tienda</a>
+        <div class="hero-inner">
+            <div class="hero-content">
+                <span class="kicker">Protección premium</span>
+                <h2>Rumbo seguro. Estilo extremo.</h2>
+                <p><?php echo STORE_SLOGAN; ?></p>
+
+                <div class="hero-actions">
+                    <a href="<?php echo getUrl('tienda.php'); ?>" class="btn btn-primary">Ir a la Tienda</a>
+                    <a href="<?php echo getUrl('products.php'); ?>" class="btn btn-secondary">Ver catálogo</a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <strong>15k+</strong>
+                        <span>clientes satisfechos</span>
+                    </div>
+                    <div class="stat-item">
+                        <strong>2 años</strong>
+                        <span>garantía</span>
+                    </div>
+                    <div class="stat-item">
+                        <strong>ECE</strong>
+                        <span>certificado</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-visual" aria-label="Casco premium MotoHelm">
+                <div class="helmet-card">
+                    <div class="helmet-badge">Nuevo</div>
+                    <div class="helmet-icon">🏍️</div>
+                    <h3>MotoHelm Pro Race</h3>
+                    <p>Protección, aerodinámica y diseño profesional.</p>
+                    <div class="helmet-price">$299.99</div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Sección de productos destacados -->
     <section class="featured-products">
-        <h2>🏆 Nuestros Cascos Destacados</h2>
+        <div class="section-heading">
+            <span class="eyebrow">Lo más vendido</span>
+            <h2>Casco premium para cada estilo</h2>
+        </div>
+
         <div class="products-grid">
-            <div class="product-card">
+            <article class="product-card">
                 <div class="product-image">🎯</div>
                 <h3>MotoHelm Pro Racing</h3>
                 <p class="price">$299.99</p>
@@ -28,9 +62,9 @@ require_once 'includes/header.php';
                     <li>✓ 5 colores disponibles</li>
                 </ul>
                 <button class="btn btn-secondary">Agregar al carrito</button>
-            </div>
-            
-            <div class="product-card">
+            </article>
+
+            <article class="product-card">
                 <div class="product-image">🛵</div>
                 <h3>MotoHelm Urban</h3>
                 <p class="price">$149.99</p>
@@ -41,9 +75,9 @@ require_once 'includes/header.php';
                     <li>✓ Forro removible</li>
                 </ul>
                 <button class="btn btn-secondary">Agregar al carrito</button>
-            </div>
-            
-            <div class="product-card">
+            </article>
+
+            <article class="product-card">
                 <div class="product-image">🏁</div>
                 <h3>MotoHelm Off-Road</h3>
                 <p class="price">$189.99</p>
@@ -54,13 +88,16 @@ require_once 'includes/header.php';
                     <li>✓ Peso ligero</li>
                 </ul>
                 <button class="btn btn-secondary">Agregar al carrito</button>
-            </div>
+            </article>
         </div>
     </section>
 
-    <!-- Sección de garantía -->
     <section class="guarantees">
-        <h2>✨ ¿Por qué elegir MotoHelm?</h2>
+        <div class="section-heading">
+            <span class="eyebrow">Nuestra diferencia</span>
+            <h2>¿Por qué elegir MotoHelm?</h2>
+        </div>
+
         <div class="guarantees-grid">
             <div class="guarantee-card">
                 <h3>🛡️ Seguridad Certificada</h3>

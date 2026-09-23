@@ -1,0 +1,68 @@
+/* Base variables and resets */
+:root {
+    /* Base backgrounds */
+    --bg: #050816;
+    --bg-soft: #071029;
+    --panel: rgba(8, 10, 22, 0.92);
+    --panel-strong: #0b1228;
+    --card: #0f1724;
+
+    /* Palette - modern, vibrante */
+    --primary-color: #7c3aed; /* violeta */
+    --secondary-color: #06b6d4; /* cian/teal */
+    --secondary-strong: #0891b2;
+    --accent-1: rgba(124, 58, 237, 1);
+    --accent-1-soft: rgba(124, 58, 237, 0.18);
+    --accent-2: rgba(6, 182, 212, 1);
+    --accent-2-soft: rgba(6, 182, 212, 0.12);
+
+    /* Typography */
+    --text: #e6f0ff;
+    --text-soft: #a9bed6;
+    --muted: #93a8bf;
+    --white: #ffffff;
+    --light-color: #edf2ff;
+    /* Panel / contrast colors */
+    --panel-text-dark: #0b1220;
+    --panel-bg-light: #ffffff;
+
+    --border-color: rgba(110, 57, 237, 0.12);
+    --success-color: #22c55e;
+    --error-color: #ef4444;
+    --shadow: 0 26px 70px rgba(2, 6, 23, 0.52);
+    --shadow-soft: 0 14px 30px rgba(15, 23, 42, 0.24);
+}
+
+/* Reset y estilos globales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    color: var(--text);
+    line-height: 1.6;
+    background:
+        radial-gradient(circle at top right, var(--accent-1-soft), transparent 24%),
+        radial-gradient(circle at top left, var(--accent-2-soft), transparent 22%),
+        linear-gradient(180deg, var(--bg) 0%, var(--panel-strong) 45%, var(--bg-soft) 100%);
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Contenedor */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}

@@ -6,7 +6,7 @@ require_once 'includes/header.php';
 <div class="container">
     <section class="about-section">
         <h2>🏢 Acerca de MotoHelm</h2>
-        
+
         <div class="about-content">
             <article>
                 <h3>Nuestra Historia</h3>

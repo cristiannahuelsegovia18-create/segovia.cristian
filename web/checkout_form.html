@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout | MotoHelm</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <nav class="navbar">
+      <div class="container nav-shell">
+        <a href="index.html" class="logo" aria-label="MotoHelm inicio">
+          <span class="logo-mark">MH</span>
+          <span class="logo-text">MotoHelm</span>
+        </a>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Inicio</a></li>
+          <li><a href="products.html" class="nav-link">Catálogo</a></li>
+          <li><a href="services.html" class="nav-link">Servicios</a></li>
+          <li><a href="about.html" class="nav-link">Acerca de</a></li>
+          <li><a href="contact.html" class="nav-link">Contacto</a></li>
+        </ul>
+        <a href="tienda.html" class="nav-cta">Comprar ahora</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <div class="container checkout-shell">
+      <div class="checkout-header">
+        <span class="kicker">Checkout</span>
+        <h2>Finalizar compra</h2>
+        <p>Revisa tu información y elige el método de pago ideal.</p>
+      </div>
+
+      <div class="checkout-layout">
+        <form id="checkout-form" class="checkout-panel" novalidate>
+          <div class="field-group">
+            <label for="buyer_name">Nombre completo</label>
+            <input type="text" id="buyer_name" name="buyer_name" placeholder="Tu nombre y apellido" required>
+          </div>
+
+          <div class="field-group">
+            <label for="buyer_email">Email</label>
+            <input type="email" id="buyer_email" name="buyer_email" placeholder="correo@ejemplo.com" required>
+          </div>
+
+          <div class="field-group">
+            <label for="buyer_phone">Teléfono</label>
+            <input type="text" id="buyer_phone" name="buyer_phone" placeholder="Ej: +54 9 11 1234 5678">
+          </div>
+
+          <div class="field-group">
+            <label for="payment_method">Método de pago</label>
+            <select name="payment_method" id="payment_method">
+              <option value="mail">Contacto por email</option>
+              <option value="stripe">Stripe (configurar)</option>
+              <option value="paypal">PayPal (configurar)</option>
+            </select>
+          </div>
+
+          <input type="hidden" name="cart" id="cart-input">
+
+          <button class="btn btn-primary full-width" type="submit" id="submit-btn">Enviar pedido</button>
+        </form>
+
+        <aside class="summary-panel">
+          <div class="summary-header">
+            <h3>Resumen</h3>
+            <span>ARS</span>
+          </div>
+          <div id="checkout-summary"></div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="logo logo-footer">
+            <span class="logo-mark">MH</span>
+            <span class="logo-text">MotoHelm</span>
+          </a>
+          <p>Casco de moto premium para cada ruta, estilo y necesidad.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Explorar</h4>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="products.html">Catálogo</a></li>
+            <li><a href="services.html">Servicios</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Compañía</h4>
+          <ul>
+            <li><a href="about.html">Acerca de</a></li>
+            <li><a href="contact.html">Contacto</a></li>
+            <li><a href="tienda.html">Tienda</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Síguenos</h4>
+          <ul>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">YouTube</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 MotoHelm - Cascos para Motocicleta. Todos los derechos reservados.</p>
+        <p>Versión 1.0.0</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const form = document.getElementById('checkout-form');
+      const cartInput = document.getElementById('cart-input');
+      const summary = document.getElementById('checkout-summary');
+      const cart = JSON.parse(localStorage.getItem('mh_cart') || '[]');
+
+      if (cart.length === 0) {
+        summary.innerHTML = '<p>El carrito está vacío.</p>';
+      } else {
+        let total = 0;
+        summary.innerHTML = `
+          <ul>
+            ${cart.map((item) => {
+              const subtotal = Number(item.price || 0) * Number(item.qty || 1);
+              total += subtotal;
+              return `<li>${item.name} × ${item.qty} — ${new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(Number(subtotal || 0))}</li>`;
+            }).join('')}
+          </ul>
+          <p><strong>Total: ${new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(Number(total || 0))}</strong></p>
+        `;
+      }
+
+      cartInput.value = JSON.stringify(cart);
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        const buyerName = form.querySelector('[name="buyer_name"]').value.trim();
+        const buyerEmail = form.querySelector('[name="buyer_email"]').value.trim();
+        const buyerPhone = form.querySelector('[name="buyer_phone"]').value.trim();
+
+        if (!buyerName || !buyerEmail) {
+          alert('Completa nombre e email para continuar.');
+          return;
+        }
+
+        const order = {
+          buyer_name: buyerName,
+          buyer_email: buyerEmail,
+          buyer_phone: buyerPhone,
+          payment_method: form.querySelector('[name="payment_method"]').value,
+          cart: cart
+        };
+
+        localStorage.setItem('mh_last_order', JSON.stringify(order));
+        localStorage.removeItem('mh_cart');
+
+        alert('✅ Pedido enviado correctamente.');
+        window.location.href = 'checkout.html';
+      });
+    })();
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>

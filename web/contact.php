@@ -1,35 +1,6 @@
 <?php
 $pageTitle = 'Contacto - Compra o Consulta';
 require_once 'includes/header.php';
-
-// Procesar formulario
-$success = false;
-$error = '';
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Obtener y limpiar datos
-    $name = sanitizeInput($_POST['name'] ?? '');
-    $email = sanitizeInput($_POST['email'] ?? '');
-    $phone = sanitizeInput($_POST['phone'] ?? '');
-    $subject = sanitizeInput($_POST['subject'] ?? '');
-    $message = sanitizeInput($_POST['message'] ?? '');
-
-    // Validar datos
-    if (empty($name) || empty($email) || empty($phone) || empty($subject) || empty($message)) {
-        $error = 'Por favor completa todos los campos.';
-    } elseif (!isValidEmail($email)) {
-        $error = 'El email no es válido.';
-    } else {
-        // Aquí normalmente enviarías el email
-        // mail($to, $subject, $message, $headers);
-        
-        // Por ahora, simulamos el envío
-        $success = true;
-        
-        // Limpiar campos
-        $name = $email = $phone = $subject = $message = '';
-    }
-}
 ?>
 
 <div class="container">
@@ -37,55 +8,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <h2>🏍️ Contacto - Consultas y Compras</h2>
         <p class="subtitle">¿Preguntas sobre nuestros cascos? ¿Necesitas asesoría? Contáctanos ahora.</p>
 
-        <?php if ($success): ?>
-            <div class="alert alert-success">
-                ✅ ¡Mensaje enviado correctamente! Nos pondremos en contacto en las próximas 2 horas.
-            </div>
-        <?php endif; ?>
+        <div id="contact-success" class="alert alert-success" style="display:none;">
+            ✅ ¡Mensaje enviado correctamente! Nos pondremos en contacto en las próximas 2 horas.
+        </div>
 
-        <?php if ($error): ?>
-            <div class="alert alert-error">
-                ❌ Error: <?php echo $error; ?>
-            </div>
-        <?php endif; ?>
+        <div id="contact-error" class="alert alert-error" style="display:none;"></div>
 
         <div class="contact-container">
-            <!-- Formulario de contacto -->
-            <form class="contact-form" method="POST" action="">
+            <form class="contact-form" id="contact-form" novalidate>
                 <div class="form-group">
                     <label for="name">Nombre Completo</label>
-                    <input 
-                        type="text" 
-                        id="name" 
-                        name="name" 
-                        value="<?php echo $name ?? ''; ?>" 
-                        placeholder="Tu nombre"
-                        required
-                    >
+                    <input type="text" id="name" name="name" placeholder="Tu nombre" required>
                 </div>
 
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input 
-                        type="email" 
-                        id="email" 
-                        name="email" 
-                        value="<?php echo $email ?? ''; ?>" 
-                        placeholder="tu@email.com"
-                        required
-                    >
+                    <input type="email" id="email" name="email" placeholder="tu@email.com" required>
                 </div>
 
                 <div class="form-group">
                     <label for="phone">Teléfono / WhatsApp</label>
-                    <input 
-                        type="tel" 
-                        id="phone" 
-                        name="phone" 
-                        value="<?php echo $phone ?? ''; ?>" 
-                        placeholder="+57 300 1234567"
-                        required
-                    >
+                    <input type="tel" id="phone" name="phone" placeholder="+57 300 1234567" required>
                 </div>
 
                 <div class="form-group">
@@ -103,19 +46,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <div class="form-group">
                     <label for="message">Mensaje</label>
-                    <textarea 
-                        id="message" 
-                        name="message" 
-                        rows="5" 
-                        placeholder="Cuéntanos cómo podemos ayudarte..."
-                        required
-                    ><?php echo $message ?? ''; ?></textarea>
+                    <textarea id="message" name="message" rows="5" placeholder="Cuéntanos cómo podemos ayudarte..." required></textarea>
                 </div>
 
                 <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
             </form>
 
-            <!-- Información de contacto -->
             <div class="contact-info">
                 <h3>📞 Información de Contacto</h3>
                 <div class="info-item">
@@ -150,5 +86,46 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </section>
 </div>
+
+<script>
+(function () {
+    const form = document.getElementById('contact-form');
+    const successBox = document.getElementById('contact-success');
+    const errorBox = document.getElementById('contact-error');
+
+    if (!form) return;
+
+    const setError = (message) => {
+        errorBox.textContent = message;
+        errorBox.style.display = 'block';
+        successBox.style.display = 'none';
+    };
+
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const name = form.querySelector('#name').value.trim();
+        const email = form.querySelector('#email').value.trim();
+        const phone = form.querySelector('#phone').value.trim();
+        const subject = form.querySelector('#subject').value.trim();
+        const message = form.querySelector('#message').value.trim();
+
+        if (!name || !email || !phone || !subject || !message) {
+            setError('Por favor completa todos los campos.');
+            return;
+        }
+
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+            setError('El email no es válido.');
+            return;
+        }
+
+        errorBox.style.display = 'none';
+        successBox.style.display = 'block';
+        form.reset();
+    });
+})();
+</script>
 
 <?php require_once 'includes/footer.php'; ?>

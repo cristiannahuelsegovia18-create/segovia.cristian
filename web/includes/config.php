@@ -9,6 +9,8 @@ define('SITE_NAME', 'MotoHelm - Cascos para Motocicleta');
 define('SITE_VERSION', '1.0.0');
 define('CHARSET', 'UTF-8');
 define('STORE_SLOGAN', 'Protege tu vida, elige MotoHelm');
+define('CURRENCY_CODE', 'ARS');
+define('CURRENCY_SYMBOL', '$');
 
 // Configurar zona horaria
 date_default_timezone_set('America/Bogota');

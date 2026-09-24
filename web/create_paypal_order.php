@@ -29,7 +29,7 @@ foreach ($cart as $it) {
     $total += $price * $qty;
     $itemsForPayPal[] = [
         'name' => $prod['name'],
-        'unit_amount' => [ 'currency_code' => ($prod['currency'] ?? 'USD'), 'value' => number_format($price,2,'.','') ],
+        'unit_amount' => [ 'currency_code' => ($prod['currency'] ?? 'ARS'), 'value' => number_format($price,0,'.','') ],
         'quantity' => (string)$qty,
         'sku' => $sku
     ];
@@ -60,12 +60,12 @@ if (empty($data['access_token'])) { echo json_encode(['error' => 'Failed to obta
 $token = $data['access_token'];
 
 // Create order
-$currency = 'USD';
+$currency = 'ARS';
 if (!empty($itemsForPayPal[0]['unit_amount']['currency_code'])) $currency = $itemsForPayPal[0]['unit_amount']['currency_code'];
 $orderPayload = [
     'intent' => 'CAPTURE',
     'purchase_units' => [[
-        'amount' => [ 'currency_code' => $currency, 'value' => number_format($total,2,'.','') ],
+        'amount' => [ 'currency_code' => $currency, 'value' => number_format($total,0,'.','') ],
         'items' => $itemsForPayPal
     ]]
 ];

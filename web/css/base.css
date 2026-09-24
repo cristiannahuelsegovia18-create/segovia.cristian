@@ -1,36 +1,37 @@
 /* Base variables and resets */
 :root {
     /* Base backgrounds */
-    --bg: #050816;
-    --bg-soft: #071029;
-    --panel: rgba(8, 10, 22, 0.92);
-    --panel-strong: #0b1228;
-    --card: #0f1724;
+    --bg: #040814;
+    --bg-soft: #090f1f;
+    --panel: rgba(11, 14, 28, 0.92);
+    --panel-strong: #0d1325;
+    --card: #111827;
 
-    /* Palette - modern, vibrante */
-    --primary-color: #7c3aed; /* violeta */
-    --secondary-color: #06b6d4; /* cian/teal */
-    --secondary-strong: #0891b2;
-    --accent-1: rgba(124, 58, 237, 1);
-    --accent-1-soft: rgba(124, 58, 237, 0.18);
-    --accent-2: rgba(6, 182, 212, 1);
-    --accent-2-soft: rgba(6, 182, 212, 0.12);
+    /* Premium palette */
+    --primary-color: #7c3aed;
+    --primary-deep: #5b21b6;
+    --secondary-color: #22d3ee;
+    --secondary-strong: #06b6d4;
+    --accent-1: #8b5cf6;
+    --accent-1-soft: rgba(139, 92, 246, 0.18);
+    --accent-2: #67e8f9;
+    --accent-2-soft: rgba(103, 232, 249, 0.12);
+    --accent-3: #c4b5fd;
 
     /* Typography */
-    --text: #e6f0ff;
-    --text-soft: #a9bed6;
-    --muted: #93a8bf;
+    --text: #edf6ff;
+    --text-soft: #afc1d9;
+    --muted: #90a6c6;
     --white: #ffffff;
-    --light-color: #edf2ff;
-    /* Panel / contrast colors */
+    --light-color: #eef4ff;
     --panel-text-dark: #0b1220;
     --panel-bg-light: #ffffff;
 
-    --border-color: rgba(110, 57, 237, 0.12);
-    --success-color: #22c55e;
+    --border-color: rgba(167, 139, 250, 0.16);
+    --success-color: #34d399;
     --error-color: #ef4444;
-    --shadow: 0 26px 70px rgba(2, 6, 23, 0.52);
-    --shadow-soft: 0 14px 30px rgba(15, 23, 42, 0.24);
+    --shadow: 0 28px 70px rgba(2, 6, 23, 0.52);
+    --shadow-soft: 0 18px 36px rgba(15, 23, 42, 0.26);
 }
 
 /* Reset y estilos globales */
@@ -50,9 +51,10 @@ body {
     color: var(--text);
     line-height: 1.6;
     background:
-        radial-gradient(circle at top right, var(--accent-1-soft), transparent 24%),
-        radial-gradient(circle at top left, var(--accent-2-soft), transparent 22%),
-        linear-gradient(180deg, var(--bg) 0%, var(--panel-strong) 45%, var(--bg-soft) 100%);
+        radial-gradient(circle at 85% 10%, rgba(139, 92, 246, 0.22), transparent 22%),
+        radial-gradient(circle at 15% 18%, rgba(34, 211, 238, 0.12), transparent 20%),
+        linear-gradient(180deg, #040814 0%, #0d1325 36%, #091525 100%);
+    min-height: 100vh;
 }
 
 img {

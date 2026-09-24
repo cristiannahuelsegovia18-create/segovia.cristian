@@ -24,27 +24,27 @@ Sitio web de venta de cascos para motocicleta construido con HTML5, PHP y CSS3.
 
 ## Productos Disponibles
 
-1. **MotoHelm Pro Racing** - $299.99
+1. **MotoHelm Pro Racing** - $299.000
    - Casco integral de máxima protección
    - Perfecto para carreras y alta velocidad
 
-2. **MotoHelm Urban** - $149.99
+2. **MotoHelm Urban** - $149.000
    - Casco modular para uso urbano
    - Ideal para viajes ocasionales
 
-3. **MotoHelm Off-Road** - $189.99
+3. **MotoHelm Off-Road** - $189.000
    - Casco de motocross
    - Máxima ventilación y protección facial
 
-4. **MotoHelm Classic** - $179.99
+4. **MotoHelm Classic** - $179.000
    - Casco tipo jet abierto
    - Estilo vintage para scooters
 
-5. **MotoHelm Cruiser** - $219.99
+5. **MotoHelm Cruiser** - $219.000
    - Casco abierto para cruisers
    - Cómodo para viajes largos
 
-6. **MotoHelm Adventure** - $259.99
+6. **MotoHelm Adventure** - $259.000
    - Casco modular adventure
    - Máxima versatilidad
 

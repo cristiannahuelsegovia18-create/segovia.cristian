@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda | MotoHelm</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/shop.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <nav class="navbar">
+      <div class="container nav-shell">
+        <a href="index.html" class="logo" aria-label="MotoHelm inicio">
+          <span class="logo-mark">MH</span>
+          <span class="logo-text">MotoHelm</span>
+        </a>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Inicio</a></li>
+          <li><a href="products.html" class="nav-link">Catálogo</a></li>
+          <li><a href="services.html" class="nav-link">Servicios</a></li>
+          <li><a href="about.html" class="nav-link">Acerca de</a></li>
+          <li><a href="contact.html" class="nav-link">Contacto</a></li>
+        </ul>
+        <a href="tienda.html" class="nav-cta">Comprar ahora</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <div class="container shop-container">
+      <section class="shop-hero">
+        <div class="shop-hero-top">
+          <span class="kicker">MotoHelm Store</span>
+          <span class="catalog-badge">ENVÍO 48H</span>
+        </div>
+        <h2>Protección premium para cada recorrido.</h2>
+        <p>Casco de moto con diseño premium, alta seguridad y cercanía a la experiencia real de conducción.</p>
+        <div class="shop-hero-actions">
+          <a href="#catalog" class="btn btn-primary">Ver Productos</a>
+          <a href="products.html" class="btn btn-secondary">Explorar catálogo</a>
+        </div>
+      </section>
+
+      <section id="catalog" class="catalog">
+        <div id="products" class="products-grid"></div>
+      </section>
+
+      <aside class="cart" id="cart">
+        <div class="cart-header">
+          <h3>Carrito</h3>
+          <span class="cart-badge">ARS</span>
+        </div>
+        <div id="cart-items">No hay productos en el carrito.</div>
+        <div class="cart-total-line">
+          <span>Total</span>
+          <strong id="cart-total">$0.00</strong>
+        </div>
+        <button id="checkout-btn" class="btn btn-primary" type="button">Finalizar compra</button>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="logo logo-footer">
+            <span class="logo-mark">MH</span>
+            <span class="logo-text">MotoHelm</span>
+          </a>
+          <p>Casco de moto premium para cada ruta, estilo y necesidad.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Explorar</h4>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="products.html">Catálogo</a></li>
+            <li><a href="services.html">Servicios</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Compañía</h4>
+          <ul>
+            <li><a href="about.html">Acerca de</a></li>
+            <li><a href="contact.html">Contacto</a></li>
+            <li><a href="tienda.html">Tienda</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Síguenos</h4>
+          <ul>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">YouTube</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 MotoHelm - Cascos para Motocicleta. Todos los derechos reservados.</p>
+        <p>Versión 1.0.0</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const products = [
+      { id: 'mh-pro-racing', name: 'MotoHelm Pro Racing', price: 299000, img: 'https://images.unsplash.com/photo-1529488157376-bf7f4798d7b9?auto=format&fit=crop&w=900&q=80', description: 'Casco integral certificado ECE, ideal para pista.', colors: ['Negro', 'Blanco', 'Rojo'], sizes: ['S', 'M', 'L'] },
+      { id: 'mh-urban', name: 'MotoHelm Urban', price: 149000, img: 'https://images.unsplash.com/photo-1529488157376-bf7f4798d7b9?auto=format&fit=crop&w=900&q=80', description: 'Casco modular para uso urbano con visera abatible.', colors: ['Gris', 'Blanco'], sizes: ['M', 'L'] },
+      { id: 'mh-offroad', name: 'MotoHelm Off-Road', price: 189000, img: 'https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=900&q=80', description: 'Casco de motocross ligero y ventilado.', colors: ['Amarillo', 'Negro'], sizes: ['M', 'L', 'XL'] },
+      { id: 'mh-classic', name: 'MotoHelm Classic', price: 99000, img: 'https://images.unsplash.com/photo-1529488157376-bf7f4798d7b9?auto=format&fit=crop&w=900&q=80', description: 'Casco abierto clásico, cómodo y ligero.', colors: ['Blanco', 'Negro'], sizes: ['S', 'M'] }
+    ];
+
+    const productsEl = document.getElementById('products');
+    const cartItemsEl = document.getElementById('cart-items');
+    const cartTotalEl = document.getElementById('cart-total');
+    const checkoutBtn = document.getElementById('checkout-btn');
+    let cart = JSON.parse(localStorage.getItem('mh_cart') || '[]');
+
+    function formatPrice(value) {
+      return new Intl.NumberFormat('es-AR', {
+        style: 'currency',
+        currency: 'ARS',
+        maximumFractionDigits: 0
+      }).format(Number(value || 0));
+    }
+
+    function renderProducts() {
+      productsEl.innerHTML = '';
+      products.forEach((product) => {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.innerHTML = `
+          <img src="${product.img}" alt="${product.name}">
+          <h3>${product.name}</h3>
+          <p class="price">${formatPrice(product.price)}</p>
+          <p>${product.description}</p>
+          <p><small>Colores: ${(product.colors || []).join(', ')} · Tallas: ${(product.sizes || []).join(', ')}</small></p>
+          <div class="product-actions">
+            <button class="btn btn-secondary" type="button" data-id="${product.id}">Agregar</button>
+            <a class="btn btn-primary" href="product.html?id=${encodeURIComponent(product.id)}">Ver</a>
+          </div>
+        `;
+        productsEl.appendChild(card);
+      });
+
+      productsEl.querySelectorAll('button[data-id]').forEach((button) => {
+        button.addEventListener('click', () => {
+          const id = button.getAttribute('data-id');
+          const product = products.find((item) => item.id === id);
+          if (!product) return;
+
+          const existing = cart.find((item) => item.id === product.id);
+          if (existing) {
+            existing.qty += 1;
+          } else {
+            cart.push({ id: product.id, name: product.name, price: product.price, qty: 1 });
+          }
+
+          localStorage.setItem('mh_cart', JSON.stringify(cart));
+          renderCart();
+          alert('✅ ' + product.name + ' agregado al carrito');
+        });
+      });
+    }
+
+    function renderCart() {
+      if (cart.length === 0) {
+        cartItemsEl.textContent = 'No hay productos en el carrito.';
+        cartTotalEl.textContent = formatPrice(0);
+        return;
+      }
+
+      let total = 0;
+      cartItemsEl.innerHTML = '';
+      cart.forEach((item) => {
+        const subtotal = Number(item.price || 0) * Number(item.qty || 1);
+        total += subtotal;
+        const row = document.createElement('div');
+        row.className = 'cart-row';
+        row.innerHTML = `<div>${item.name} x${item.qty}</div><div>${formatPrice(subtotal)}</div>`;
+        cartItemsEl.appendChild(row);
+      });
+
+      cartTotalEl.textContent = formatPrice(total);
+    }
+
+    checkoutBtn.addEventListener('click', () => {
+      if (cart.length === 0) {
+        alert('El carrito está vacío.');
+        return;
+      }
+      window.location.href = 'checkout_form.html';
+    });
+
+    renderProducts();
+    renderCart();
+  </script>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

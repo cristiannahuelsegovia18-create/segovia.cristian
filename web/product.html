@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Producto | MotoHelm</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <nav class="navbar">
+      <div class="container nav-shell">
+        <a href="index.html" class="logo" aria-label="MotoHelm inicio">
+          <span class="logo-mark">MH</span>
+          <span class="logo-text">MotoHelm</span>
+        </a>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Inicio</a></li>
+          <li><a href="products.html" class="nav-link">Catálogo</a></li>
+          <li><a href="services.html" class="nav-link">Servicios</a></li>
+          <li><a href="about.html" class="nav-link">Acerca de</a></li>
+          <li><a href="contact.html" class="nav-link">Contacto</a></li>
+        </ul>
+        <a href="tienda.html" class="nav-cta">Comprar ahora</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+      <section class="product-page">
+        <div class="catalog-hero small-hero">
+          <div class="catalog-hero-top">
+            <span class="kicker">Detalle del producto</span>
+            <span class="catalog-badge">Protección premium</span>
+          </div>
+          <div class="catalog-hero-content compact">
+            <div>
+              <h2>Rendimiento, seguridad y estilo.</h2>
+            </div>
+          </div>
+        </div>
+        <div id="product-detail" class="product-detail">
+          <p>Cargando producto...</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="logo logo-footer">
+            <span class="logo-mark">MH</span>
+            <span class="logo-text">MotoHelm</span>
+          </a>
+          <p>Casco de moto premium para cada ruta, estilo y necesidad.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Explorar</h4>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="products.html">Catálogo</a></li>
+            <li><a href="services.html">Servicios</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Compañía</h4>
+          <ul>
+            <li><a href="about.html">Acerca de</a></li>
+            <li><a href="contact.html">Contacto</a></li>
+            <li><a href="tienda.html">Tienda</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Síguenos</h4>
+          <ul>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">YouTube</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 MotoHelm - Cascos para Motocicleta. Todos los derechos reservados.</p>
+        <p>Versión 1.0.0</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (async function () {
+      const container = document.getElementById('product-detail');
+      const params = new URLSearchParams(window.location.search);
+      const productId = params.get('id');
+
+      const products = [
+        { id: 'mh-pro-racing', name: 'MotoHelm Pro Racing', price: 299000, description: 'Casco integral certificado ECE, ideal para pista.', colors: ['Negro', 'Blanco', 'Rojo'], sizes: ['S', 'M', 'L'], img: 'https://images.unsplash.com/photo-1529488157376-bf7f4798d7b9?auto=format&fit=crop&w=900&q=80' },
+        { id: 'mh-urban', name: 'MotoHelm Urban', price: 149000, description: 'Casco modular para uso urbano con visera abatible.', colors: ['Gris', 'Blanco'], sizes: ['M', 'L'], img: 'https://images.unsplash.com/photo-1529488157376-bf7f4798d7b9?auto=format&fit=crop&w=900&q=80' },
+        { id: 'mh-offroad', name: 'MotoHelm Off-Road', price: 189000, description: 'Casco de motocross ligero y ventilado.', colors: ['Amarillo', 'Negro'], sizes: ['M', 'L', 'XL'], img: 'https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=900&q=80' },
+        { id: 'mh-classic', name: 'MotoHelm Classic', price: 99000, description: 'Casco abierto clásico, cómodo y ligero.', colors: ['Blanco', 'Negro'], sizes: ['S', 'M'], img: 'https://images.unsplash.com/photo-1529488157376-bf7f4798d7b9?auto=format&fit=crop&w=900&q=80' }
+      ];
+
+      const product = products.find((item) => String(item.id) === String(productId));
+
+      if (!product) {
+        container.innerHTML = `
+          <p>Producto no encontrado.</p>
+          <a class="btn btn-primary" href="tienda.html">Volver</a>
+        `;
+        return;
+      }
+
+      container.innerHTML = `
+        <div class="product-detail-card">
+          <div class="product-image-box">
+            <div class="product-image-glow">🏍️</div>
+            <img src="${product.img}" alt="${product.name}" style="max-width:400px; display:block;">
+          </div>
+          <div class="product-info-box">
+            <span class="eyebrow">Casco premium</span>
+            <h2>${product.name}</h2>
+            <p class="price">${new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(Number(product.price || 0))}</p>
+            <p class="product-summary">${product.description}</p>
+            <div class="product-pills">
+              ${product.colors.map((color) => `<span class="spec-pill">${color}</span>`).join('')}
+              ${product.sizes.map((size) => `<span class="spec-pill">${size}</span>`).join('')}
+            </div>
+            <div class="product-actions">
+              <button id="add-product" class="btn btn-primary" type="button">Agregar al carrito</button>
+              <a class="btn btn-secondary" href="tienda.html">Volver al catálogo</a>
+            </div>
+          </div>
+        </div>
+      `;
+
+      document.getElementById('add-product').addEventListener('click', () => {
+        const cart = JSON.parse(localStorage.getItem('mh_cart') || '[]');
+        const existing = cart.find((item) => item.id === product.id);
+
+        if (existing) {
+          existing.qty += 1;
+        } else {
+          cart.push({ id: product.id, name: product.name, price: Number(product.price), qty: 1 });
+        }
+
+        localStorage.setItem('mh_cart', JSON.stringify(cart));
+        alert('Producto agregado al carrito');
+      });
+    })();
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -7,7 +7,9 @@
   let products = [];
   let cart = JSON.parse(localStorage.getItem('mh_cart') || '[]');
 
-  function formatPrice(v){ return '$' + v.toFixed(2); }
+  function formatPrice(v){
+    return new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(Number(v || 0));
+  }
 
   const filters = { color: '', size: '' };
 
@@ -71,7 +73,7 @@
       checkoutBtn.onclick = function(){
         if(cart.length===0){ alert('El carrito está vacío.'); return; }
         // Redirect to checkout form page; the form will read cart from localStorage
-        window.location.href = (typeof CHECKOUT_URL !== 'undefined') ? CHECKOUT_URL.replace('checkout.php','checkout_form.php') : 'checkout_form.php';
+        window.location.href = (typeof CHECKOUT_URL !== 'undefined') ? CHECKOUT_URL.replace('checkout.php','checkout_form.php') : 'checkout_form.html';
       };
     }
   }

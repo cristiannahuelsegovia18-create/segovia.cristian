@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto | MotoHelm</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <nav class="navbar">
+      <div class="container nav-shell">
+        <a href="index.html" class="logo" aria-label="MotoHelm inicio">
+          <span class="logo-mark">MH</span>
+          <span class="logo-text">MotoHelm</span>
+        </a>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Inicio</a></li>
+          <li><a href="products.html" class="nav-link">Catálogo</a></li>
+          <li><a href="services.html" class="nav-link">Servicios</a></li>
+          <li><a href="about.html" class="nav-link">Acerca de</a></li>
+          <li><a href="contact.html" class="nav-link active">Contacto</a></li>
+        </ul>
+        <a href="tienda.html" class="nav-cta">Comprar ahora</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+      <section class="contact-section">
+        <h2>🏍️ Contacto - Consultas y Compras</h2>
+        <p class="subtitle">¿Preguntas sobre nuestros cascos? ¿Necesitas asesoría? Contáctanos ahora.</p>
+
+        <div id="contact-success" class="alert alert-success" style="display:none;">
+          ✅ ¡Mensaje enviado correctamente! Nos pondremos en contacto en las próximas 2 horas.
+        </div>
+
+        <div id="contact-error" class="alert alert-error" style="display:none;"></div>
+
+        <div class="contact-container">
+          <form class="contact-form" id="contact-form" novalidate>
+            <div class="form-group">
+              <label for="name">Nombre Completo</label>
+              <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Teléfono / WhatsApp</label>
+              <input type="tel" id="phone" name="phone" placeholder="+57 300 1234567" required>
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Asunto</label>
+              <select id="subject" name="subject" required>
+                <option value="">-- Selecciona un tema --</option>
+                <option value="Consulta sobre un casco">Consulta sobre un casco</option>
+                <option value="Información de compra">Información de compra</option>
+                <option value="Envío y entrega">Envío y entrega</option>
+                <option value="Garantía y cambios">Garantía y cambios</option>
+                <option value="Asesoría especializada">Asesoría especializada</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Mensaje</label>
+              <textarea id="message" name="message" rows="5" placeholder="Cuéntanos cómo podemos ayudarte..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+          </form>
+
+          <div class="contact-info">
+            <h3>📞 Información de Contacto</h3>
+            <div class="info-item">
+              <strong>📧 Email:</strong>
+              <p><a href="mailto:ventas@motohelm.com">ventas@motohelm.com</a></p>
+              <p style="font-size: 0.9rem; color: #666;">Respuesta en menos de 2 horas</p>
+            </div>
+            <div class="info-item">
+              <strong>☎️ Teléfono:</strong>
+              <p><a href="tel:+573001234567">+57 (300) 123-4567</a></p>
+              <p style="font-size: 0.9rem; color: #666;">Disponible: Lun-Sab 8am-6pm</p>
+            </div>
+            <div class="info-item">
+              <strong>💬 WhatsApp:</strong>
+              <p><a href="https://wa.me/573001234567" target="_blank" rel="noreferrer">Chat directo</a></p>
+              <p style="font-size: 0.9rem; color: #666;">Asesoría al instante</p>
+            </div>
+            <div class="info-item">
+              <strong>📍 Dirección:</strong>
+              <p>Carrera 10 #45-50<br>Medellín, Colombia</p>
+            </div>
+            <div class="contact-methods">
+              <h4>Formas de Compra</h4>
+              <ul>
+                <li>✓ Tienda en línea 24/7</li>
+                <li>✓ Por teléfono</li>
+                <li>✓ Por WhatsApp</li>
+                <li>✓ Visita nuestra tienda física</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="logo logo-footer">
+            <span class="logo-mark">MH</span>
+            <span class="logo-text">MotoHelm</span>
+          </a>
+          <p>Casco de moto premium para cada ruta, estilo y necesidad.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Explorar</h4>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="products.html">Catálogo</a></li>
+            <li><a href="services.html">Servicios</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Compañía</h4>
+          <ul>
+            <li><a href="about.html">Acerca de</a></li>
+            <li><a href="contact.html">Contacto</a></li>
+            <li><a href="tienda.html">Tienda</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Síguenos</h4>
+          <ul>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">YouTube</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 MotoHelm - Cascos para Motocicleta. Todos los derechos reservados.</p>
+        <p>Versión 1.0.0</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const form = document.getElementById('contact-form');
+      const successBox = document.getElementById('contact-success');
+      const errorBox = document.getElementById('contact-error');
+
+      if (!form) return;
+
+      const setError = (message) => {
+        errorBox.textContent = message;
+        errorBox.style.display = 'block';
+        successBox.style.display = 'none';
+      };
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        const name = form.querySelector('#name').value.trim();
+        const email = form.querySelector('#email').value.trim();
+        const phone = form.querySelector('#phone').value.trim();
+        const subject = form.querySelector('#subject').value.trim();
+        const message = form.querySelector('#message').value.trim();
+
+        if (!name || !email || !phone || !subject || !message) {
+          setError('Por favor completa todos los campos.');
+          return;
+        }
+
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+          setError('El email no es válido.');
+          return;
+        }
+
+        errorBox.style.display = 'none';
+        successBox.style.display = 'block';
+        form.reset();
+      });
+    })();
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>

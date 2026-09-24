@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confirmación de pedido | MotoHelm</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <nav class="navbar">
+      <div class="container nav-shell">
+        <a href="index.html" class="logo" aria-label="MotoHelm inicio">
+          <span class="logo-mark">MH</span>
+          <span class="logo-text">MotoHelm</span>
+        </a>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Inicio</a></li>
+          <li><a href="products.html" class="nav-link">Catálogo</a></li>
+          <li><a href="services.html" class="nav-link">Servicios</a></li>
+          <li><a href="about.html" class="nav-link">Acerca de</a></li>
+          <li><a href="contact.html" class="nav-link">Contacto</a></li>
+        </ul>
+        <a href="tienda.html" class="nav-cta">Comprar ahora</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+      <section class="order-confirm" id="order-confirm">
+        <div class="order-status">
+          <span class="kicker">Pedido confirmado</span>
+          <h2>Gracias por tu pedido</h2>
+          <p>Cargando resumen del pedido...</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="logo logo-footer">
+            <span class="logo-mark">MH</span>
+            <span class="logo-text">MotoHelm</span>
+          </a>
+          <p>Casco de moto premium para cada ruta, estilo y necesidad.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Explorar</h4>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="products.html">Catálogo</a></li>
+            <li><a href="services.html">Servicios</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Compañía</h4>
+          <ul>
+            <li><a href="about.html">Acerca de</a></li>
+            <li><a href="contact.html">Contacto</a></li>
+            <li><a href="tienda.html">Tienda</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Síguenos</h4>
+          <ul>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">YouTube</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 MotoHelm - Cascos para Motocicleta. Todos los derechos reservados.</p>
+        <p>Versión 1.0.0</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const summary = document.getElementById('order-confirm');
+      const order = JSON.parse(localStorage.getItem('mh_last_order') || 'null');
+
+      if (!order) {
+        summary.innerHTML = `
+          <h2>No se recibió ningún pedido</h2>
+          <a class="btn btn-primary" href="tienda.html">Ir a la tienda</a>
+        `;
+        return;
+      }
+
+      const total = (order.cart || []).reduce((acc, item) => acc + Number(item.price || 0) * Number(item.qty || 1), 0);
+      const items = (order.cart || []).map((item) => `
+        <li>${item.qty} x ${item.name} — ${new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(Number(item.price || 0) * Number(item.qty || 1))}</li>
+      `).join('');
+
+      summary.innerHTML = `
+        <div class="order-status">
+          <span class="kicker">Pedido confirmado</span>
+          <h2>Gracias por tu pedido</h2>
+          <p>Pedido: <strong>ORD-${Date.now()}</strong></p>
+          <p>Fecha: ${new Date().toISOString()}</p>
+          <h3>Resumen</h3>
+          <ul>${items}</ul>
+          <p class="order-total">Total: <strong>${new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(Number(total || 0))}</strong></p>
+          <p>Hemos registrado tu pedido. Nos pondremos en contacto para coordinar pago y envío.</p>
+          <a class="btn btn-primary" href="tienda.html">Volver a la tienda</a>
+        </div>
+      `;
+    })();
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>

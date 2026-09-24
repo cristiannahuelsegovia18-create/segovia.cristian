@@ -6,7 +6,7 @@ require_once 'includes/header.php';
 <div class="container">
     <section class="services-section">
         <h2>🎁 Nuestros Servicios</h2>
-        
+
         <div class="services-grid">
             <div class="service-card">
                 <h3>🚚 Envío Rápido</h3>
